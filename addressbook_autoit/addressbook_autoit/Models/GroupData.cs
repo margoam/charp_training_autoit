@@ -3,9 +3,8 @@ namespace addressbook_autoit
 {
 	public class GroupData
 	{
-		public GroupData()
-		{
-		}
+		public string Name { get; set; }
+
 	}
 }
 

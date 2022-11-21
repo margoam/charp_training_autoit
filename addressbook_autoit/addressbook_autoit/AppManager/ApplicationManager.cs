@@ -6,6 +6,11 @@ namespace addressbook_autoit
 		public ApplicationManager()
 		{
 		}
+
+		public void Stop()
+		{
+
+		}
 	}
 }
 
