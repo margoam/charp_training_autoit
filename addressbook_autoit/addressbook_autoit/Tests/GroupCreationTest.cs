@@ -1,6 +1,7 @@
 ﻿using System;
 namespace addressbook_autoit
 {
+	[TestFixture]
 	public class GroupCreationTest : TestBase
 	{
 		[Test]
@@ -16,7 +17,7 @@ namespace addressbook_autoit
 
 			app.Groups.Add(newGroup);
             List<GroupData> newGroups = app.Groups.GetGroupList();
-			oldGroups.Add(newGroup;
+			oldGroups.Add(newGroup);
 			oldGroups.Sort();
 			newGroups.Sort();
 
