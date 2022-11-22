@@ -11,15 +11,6 @@ namespace addressbook_autoit
 
 		}
 
-        public void Add(GroupData newGroup)
-        {
-            OpenGroupsDialogue();
-            aux.ControlClick(GROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.2c908d53");
-            aux.Send(newGroup.Name);
-            aux.Send("{ENTER}");
-            CloseGroupsDialogue();
-        }
-
         public List<GroupData> GetGroupList()
         {
             List<GroupData> list = new List<GroupData>();
@@ -40,6 +31,17 @@ namespace addressbook_autoit
             return list;
         }
 
+        public void Add(GroupData newGroup)
+        {
+            OpenGroupsDialogue();
+            aux.ControlClick(GROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.2c908d53");
+            aux.Send(newGroup.Name);
+            aux.Send("{ENTER}");
+            CloseGroupsDialogue();
+        }
+
+       
+
         public List<GroupData> IfGroupNotExists(int index, GroupData newGroup)
         {
             while (GetGroupList().Count < index + 1)
@@ -56,7 +58,7 @@ namespace addressbook_autoit
             aux.ControlTreeView
                 (GROUPWINTITLE, "", "WindowsForms10.SysTreeView32.app.0.2c908d51", "Select", "#0|#" + 0, "");
             aux.ControlClick(GROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.2c908d51");
-            aux.WinWait("Delete group");
+            WINWAIT("Delete group");
             aux.ControlClick("Delete group", "", "WindowsForms10.BUTTON.app.0.2c908d51");
             aux.ControlClick("Delete group", "", "WindowsForms10.BUTTON.app.0.2c908d53");
             CloseGroupsDialogue();
@@ -70,7 +72,7 @@ namespace addressbook_autoit
         private void OpenGroupsDialogue()
         {
             aux.ControlClick(WINTITLE, "", "WindowsForms10.BUTTON.app.0.2c908d512");
-            aux.WinWait(GROUPWINTITLE);
+            WINWAIT(GROUPWINTITLE);
         }
     }
 

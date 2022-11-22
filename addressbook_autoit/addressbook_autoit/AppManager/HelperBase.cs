@@ -19,6 +19,13 @@ namespace addressbook_autoit
             WINTITLE = ApplicationManager.WINTITLE;
             this.aux = manager.Aux;
         }
+
+        public void WINWAIT(string text)
+        {
+            aux.WinWait(text);
+            aux.WinActivate(text);
+            aux.WinWaitActive(text);
+        }
     }
 }
 
