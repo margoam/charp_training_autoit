@@ -13,14 +13,14 @@ namespace addressbook_autoit.Tests
 
             };
             List<GroupData> oldGroups = app.Groups.IfGroupNotExists(0, newGroup);
+            int countOldGroups = app.Groups.GetGroupList().Count();
 
             app.Groups.Remove(0);
-            List<GroupData> newGroups = app.Groups.GetGroupList();
+            int newGroupsCount = app.Groups.GetGroupList().Count();
             oldGroups.RemoveAt(0);
-            oldGroups.Sort();
-            newGroups.Sort();
+          
 
-            Assert.AreEqual(oldGroups, newGroups);
+            Assert.AreEqual(countOldGroups - 1, newGroupsCount);
         }
     }
 }

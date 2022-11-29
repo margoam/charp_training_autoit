@@ -9,19 +9,20 @@ namespace addressbook_autoit
 		{
 			List<GroupData> oldGroups = app.Groups.GetGroupList();
 
-			GroupData newGroup = new GroupData()
+			int countOldGroups = app.Groups.GetGroupList().Count();
+
+            GroupData newGroup = new GroupData()
 			{
 				Name = "test"
 
 			};
 
 			app.Groups.Add(newGroup);
-            List<GroupData> newGroups = app.Groups.GetGroupList();
-			oldGroups.Add(newGroup);
-			oldGroups.Sort();
-			newGroups.Sort();
+            int newGroups = app.Groups.GetGroupList().Count();
+            oldGroups.Add(newGroup);
+		
 
-			Assert.AreEqual(oldGroups, newGroups);
+			Assert.AreEqual(countOldGroups + 1, newGroups);
         }
 	}
 }

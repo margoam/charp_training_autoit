@@ -66,7 +66,7 @@ namespace addressbook_autoit
 
         private void CloseGroupsDialogue()
         {
-            aux.ControlClick(WINTITLE, "", "WindowsForms10.BUTTON.app.0.2c908d54");
+            aux.ControlClick(GROUPWINTITLE, "", "WindowsForms10.BUTTON.app.0.2c908d54");
         }
 
         private void OpenGroupsDialogue()
